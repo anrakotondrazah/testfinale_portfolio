@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Andry Eudes — Full-Stack Developer & AI Engineer</title>
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="/assets/css/main.css"/>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════ -->
+<nav>
+  <a href="#hero" style="display:flex;align-items:center;gap:10px;color:#fff;">
+    <div style="width:36px;height:36px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.2);flex-shrink:0;"><img src="/img/avatar.png" alt="Andry Eudes" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>
+    <span style="font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;opacity:0.75;display:none;" class="sm-show">Andry Eudes</span>
+  </a>
+
+  <div class="nav-pill">
+    <a href="#hero" class="active" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="#about" data-en="About" data-fr="À propos">About</a>
+    <a href="#services" data-en="Services" data-fr="Services">Services</a>
+    <a href="#projects" data-en="Projects" data-fr="Projets">Projects</a>
+    <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div id="lang-toggle">
+      <button id="btn-en" onclick="setLang('en')" class="lang-active">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')" class="lang-inactive">FR</button>
+    </div>
+    <a href="mailto:anrakotondrazah@gmail.com" class="liquid-glass"
+       style="border-radius:999px;padding:9px 20px;font-size:13px;font-weight:600;color:#fff;"
+       data-en="Contact me" data-fr="Me contacter">Contact me</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO — Spotlight lithos
+══════════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Layer 1 fond -->
+  <div id="hero-base"></div>
+
+  <!-- Halos -->
+  <div class="halo" style="width:540px;height:540px;"></div>
+  <div class="halo" style="width:440px;height:440px;"></div>
+  <div class="halo" style="width:340px;height:340px;"></div>
+
+  <!-- Layer 2 reveal -->
+  <div id="hero-reveal"></div>
+
+  <!-- Layer 3 overlay -->
+  <div id="hero-overlay"></div>
+
+  <!-- Texte haut -->
+  <div id="hero-text-top" style="z-index:10;">
+    <div class="badge anim-fade" style="animation-delay:0.1s;display:inline-flex;margin-bottom:20px;">
+      <span data-en="Full Remote · Madagascar → World" data-fr="Full Remote · Madagascar → Monde entier">Full Remote · Madagascar → World</span>
+    </div>
+    <h1 class="anim-reveal" style="animation-delay:0.25s;line-height:1;letter-spacing:-0.04em;">
+      <span class="font-playfair" style="display:block;font-style:italic;font-weight:400;font-size:clamp(3rem,9vw,7rem);color:#fff;">Andry Eudes</span>
+      <span style="display:block;font-weight:400;font-size:clamp(1rem,2.5vw,1.75rem);color:rgba(255,255,255,0.5);margin-top:12px;letter-spacing:-0.01em;">
+        <span data-en="Full-Stack Developer &amp; AI Engineer" data-fr="Développeur Full-Stack &amp; Ingénieur IA">Full-Stack Developer &amp; AI Engineer</span>
+      </span>
+    </h1>
+    <p class="anim-fade" style="animation-delay:0.6s;margin-top:16px;font-size:15px;color:rgba(255,255,255,0.45);letter-spacing:0.01em;">
+      <span data-en="I build systems that run themselves." data-fr="Je conçois des systèmes qui fonctionnent seuls.">I build systems that run themselves.</span>
+    </p>
+  </div>
+
+  <!-- Texte bas gauche -->
+  <div id="hero-text-bl" class="anim-fade" style="animation-delay:0.75s;">
+    <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">
+      <span data-en="From the voice AI that answers your calls to the system that prospects while you sleep — from A to Z, from Madagascar." data-fr="De l'agent vocal qui répond à vos appels au système qui prospecte pendant que vous dormez — de A à Z, depuis Madagascar.">From the voice AI that answers your calls to the system that prospects while you sleep — from A to Z, from Madagascar.</span>
+    </p>
+  </div>
+
+  <!-- Texte bas droite -->
+  <div id="hero-text-br" class="anim-fade" style="animation-delay:0.9s;">
+    <a href="#about" class="liquid-glass" style="border-radius:999px;padding:12px 28px;font-size:13px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;">
+      Découvrir
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+    <a href="#contact" style="font-size:12px;color:rgba(255,255,255,0.4);"><span data-en="Contact me →" data-fr="Me contacter →">Contact me →</span></a>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint anim-fade" style="animation-delay:1.1s;z-index:10;">
+    <div class="scroll-hint-line"></div>
+    <span class="scroll-hint-text">scroll</span>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     ABOUT — 4 vidéos fluides
+══════════════════════════════════════════════════ -->
+<div id="about-wrapper">
+  <div id="about-sticky">
+
+    <!-- Les 4 vidéos : lecture normale (pas de scrubbing) -->
+    <video class="about-vid active" id="av1" src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto/v1784914221/about_1_bn7sbr.webm" muted playsinline loop preload="auto"></video>
+    <video class="about-vid" id="av2" src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto/v1784914213/about_2_wfzji3.webm" muted playsinline loop preload="auto"></video>
+    <video class="about-vid" id="av3" src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto/v1784914218/about_3_bqt4v2.webm" muted playsinline loop preload="auto"></video>
+    <video class="about-vid" id="av4" src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto/v1784914217/about_4_e5tjxc.webm" muted playsinline loop preload="auto"></video>
+
+    <div id="about-overlay"></div>
+
+    <!-- Contenu texte en bas à gauche -->
+    <div id="about-content">
+
+      <div class="about-panel active" id="ap1">
+        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="01 — ABOUT" data-fr="01 — À PROPOS">01 — ABOUT</span>
+        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+          Avant de coder,<br/><span style="color:rgba(255,255,255,0.4);" data-en="I listened." data-fr="j'écoutais.">I listened.</span>
+        </h2>
+        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+          <span data-en="Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes." data-fr="Trois ans à gérer 80 appels clients par jour dans le secteur de l'énergie chez Concentrix. J'ai appris à comprendre un marché en profondeur, à qualifier un besoin en 30 secondes, et à convaincre en 5 minutes.">Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes.</span>
+        </p>
+      </div>
+
+      <div class="about-panel" id="ap2">
+        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="02 — JOURNEY" data-fr="02 — PARCOURS">02 — JOURNEY</span>
+        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+          Je construisais<br/><span style="color:rgba(255,255,255,0.4);" data-en="on the side." data-fr="en parallèle.">on the side.</span>
+        </h2>
+        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+          <span data-en="At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to." data-fr="Chez RTA CALL, je gérais 10 agents et coordonnais la direction. En même temps — la nuit, les week-ends — je construisais Francenergies.com. Sans que personne ne me le demande.">At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to.</span>
+        </p>
+      </div>
+
+      <div class="about-panel" id="ap3">
+        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="03 — FRANCENERGIES" data-fr="03 — FRANCENERGIES">03 — FRANCENERGIES</span>
+        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+          Un système<br/><span style="color:rgba(255,255,255,0.4);" data-en="that runs itself." data-fr="qui tourne seul.">that runs itself.</span>
+        </h2>
+        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+          <span data-en="Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational." data-fr="Site professionnel + assistant IA intégré + 3 workflows n8n interconnectés. Collecte B2B, enrichissement, cold email IA personnalisé par secteur. Conforme RGPD. Opérationnel.">Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational.</span>
+        </p>
+      </div>
+
+      <div class="about-panel" id="ap4">
+        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="04 — TODAY" data-fr="04 — AUJOURD'HUI">04 — TODAY</span>
+        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+          Depuis Madagascar,<br/><span style="color:rgba(255,255,255,0.4);" data-en="for the world." data-fr="pour le monde.">for the world.</span>
+        </h2>
+        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+          <span data-en="I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you." data-fr="Je conçois des solutions sur mesure, déployées, documentées, qui tournent seules. Pas des templates. Des systèmes qui font le travail à votre place.">I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you.</span>
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
+          <span class="badge" data-en="Madagascar · Full Remote" data-fr="Madagascar · Full Remote">Madagascar · Full Remote</span>
+          <span class="badge" data-en="3 years energy sector" data-fr="3 ans secteur énergie">3 years energy sector</span>
+          <span class="badge" data-en="AI + Web + n8n + GDPR" data-fr="IA + Web + n8n + RGPD">AI + Web + n8n + GDPR</span>
+          <span class="badge" data-en="Systemic thinking" data-fr="Pensée systémique">Systemic thinking</span>
+        </div>
+      </div>
+
+    </div><!-- /about-content -->
+
+    <!-- Dots de progression -->
+    <div id="about-dots">
+      <div class="about-dot active" data-step="0"></div>
+      <div class="about-dot" data-step="1"></div>
+      <div class="about-dot" data-step="2"></div>
+      <div class="about-dot" data-step="3"></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     SERVICES — Boomerang vidéo bg
+══════════════════════════════════════════════════ -->
+<section id="services">
+  <video id="boomerang-vid" autoplay loop muted playsinline
+    src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto,e_boomerang/v1784911951/output_c67tah.webm">
+  </video>
+  <div id="services-overlay"></div>
+
+    <div style="position:relative;z-index:10;max-width:1152px;margin:0 auto;padding:0 24px;">
+    <div class="section-reveal" style="text-align:center;margin-bottom:48px;">
+      <span class="badge" style="display:inline-flex;margin-bottom:16px;"
+            data-en="What I do" data-fr="Ce que je fais">What I do</span>
+      <h2 style="font-size:clamp(2.5rem,6vw,4rem);font-weight:500;line-height:1.1;">
+        <span class="section-title" data-en="Systems that" data-fr="Des systèmes qui">Systems that</span>
+        <br/><span class="section-title" style="color:rgba(255,255,255,0.4);"
+                   data-en="run themselves." data-fr="fonctionnent seuls.">run themselves.</span>
+      </h2>
+    </div>
+  </div>
+  <div class="marquee-outer" style="position:relative;z-index:10;">
+    <div class="marquee-track"><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">📞</div><h3 class="card-title" data-en="Voice AI Agent" data-fr="Agent Vocal IA">Voice AI Agent</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Your phone handled — 24/7." data-fr="Votre téléphone géré — 24h/24.">Your phone handled — 24/7.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Automated call answering, qualification and routing" data-fr="Réception, qualification et routage automatisés">Automated call answering, qualification and routing</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Prospect follow-ups triggered automatically" data-fr="Relances prospects déclenchées automatiquement">Prospect follow-ups triggered automatically</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Integrates with your existing CRM" data-fr="Intégration avec votre CRM existant">Integrates with your existing CRM</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="No missed call, no missed opportunity" data-fr="Aucun appel manqué, aucune opportunité perdue">No missed call, no missed opportunity</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🗂️</div><h3 class="card-title" data-en="B2B Lead Generation" data-fr="Génération de Leads B2B">B2B Lead Generation</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Qualified leads from official data." data-fr="Leads qualifiés depuis les données officielles.">Qualified leads from official data.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Direct API calls to SIREN/SIRENE — French public registry" data-fr="Appels API directs SIREN/SIRENE">Direct API calls to SIREN/SIRENE — French public registry</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="NAF code filtering — only active, relevant companies" data-fr="Filtrage code NAF — sociétés actives et pertinentes">NAF code filtering — only active, relevant companies</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Automated verification of company activity" data-fr="Vérification automatisée du statut d'activité">Automated verification of company activity</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Clean, structured prospect lists ready to use" data-fr="Listes propres et structurées prêtes à l'emploi">Clean, structured prospect lists ready to use</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🔍</div><h3 class="card-title" data-en="Data Enrichment" data-fr="Enrichissement de Données">Data Enrichment</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Every prospect, fully profiled." data-fr="Chaque prospect, entièrement profilé.">Every prospect, fully profiled.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Multi-source enrichment via free platforms" data-fr="Enrichissement multi-sources via plateformes gratuites">Multi-source enrichment via free platforms</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Decision-maker contacts: email, phone, LinkedIn" data-fr="Email, téléphone, LinkedIn du décisionnaire">Decision-maker contacts: email, phone, LinkedIn</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Company financials, headcount, recent news" data-fr="Finances, effectifs, actualités récentes">Company financials, headcount, recent news</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Real-time updates — always accurate data" data-fr="Mise à jour en temps réel — données fiables">Real-time updates — always accurate data</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">✉️</div><h3 class="card-title" data-en="Cold Email Automation" data-fr="Automatisation Cold Email">Cold Email Automation</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Outreach that works while you sleep." data-fr="Prospection active pendant que vous dormez.">Outreach that works while you sleep.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="AI-personalized emails per sector and company size" data-fr="Emails IA personnalisés par secteur et taille">AI-personalized emails per sector and company size</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="GDPR-compliant sending via verified domains" data-fr="Envoi conforme RGPD via domaines vérifiés">GDPR-compliant sending via verified domains</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Automated follow-up sequences" data-fr="Séquences de relance automatisées">Automated follow-up sequences</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Opens, clicks, replies — fully tracked" data-fr="Ouvertures, clics, réponses — entièrement trackés">Opens, clicks, replies — fully tracked</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🎬</div><h3 class="card-title" data-en="Content Automation" data-fr="Automatisation de Contenu">Content Automation</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Faceless channels — zero manual work." data-fr="Chaînes faceless — zéro travail manuel.">Faceless channels — zero manual work.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="AI-generated short videos for TikTok and YouTube Shorts" data-fr="Vidéos IA pour TikTok et YouTube Shorts">AI-generated short videos for TikTok and YouTube Shorts</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Local generation, automatic publishing schedule" data-fr="Génération locale, planning de publication auto">Local generation, automatic publishing schedule</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Script, voiceover, visuals — 100% automated" data-fr="Script, voix, visuels — 100% automatisé">Script, voiceover, visuals — 100% automated</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Monetization-ready from day one" data-fr="Prêt pour la monétisation dès le départ">Monetization-ready from day one</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🤖</div><h3 class="card-title" data-en="AI Website Assistant" data-fr="Assistant IA pour Site">AI Website Assistant</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Your site answers — even when you cannot." data-fr="Votre site répond — même quand vous ne pouvez pas.">Your site answers — even when you cannot.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Trained on your services, FAQ and pricing" data-fr="Entraîné sur vos services, FAQ et tarifs">Trained on your services, FAQ and pricing</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Captures visitor intent and contact details" data-fr="Capture l'intention et les coordonnées visiteurs">Captures visitor intent and contact details</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Escalates to human when needed" data-fr="Escalade vers un humain si nécessaire">Escalates to human when needed</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Deployed on any website in under a day" data-fr="Déployé sur n'importe quel site en moins d'un jour">Deployed on any website in under a day</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🌐</div><h3 class="card-title" data-en="Professional Website" data-fr="Site Web Professionnel">Professional Website</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Designed to convert. Built to last." data-fr="Conçu pour convertir. Construit pour durer.">Designed to convert. Built to last.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="React and Next.js — fast, SEO-ready" data-fr="React et Next.js — rapide, optimisé SEO">React and Next.js — fast, SEO-ready</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Mobile-first, accessible design" data-fr="Design mobile-first et accessible">Mobile-first, accessible design</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="AI assistant integration available" data-fr="Intégration assistant IA disponible">AI assistant integration available</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Delivered in 2 weeks, documented" data-fr="Livré en 2 semaines, documenté">Delivered in 2 weeks, documented</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🔒</div><h3 class="card-title" data-en="GDPR Compliance" data-fr="Conformité RGPD">GDPR Compliance</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Protect your users. Protect your business." data-fr="Protégez vos utilisateurs et votre activité.">Protect your users. Protect your business.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Cookie banner and consent management" data-fr="Bandeau cookies et gestion du consentement">Cookie banner and consent management</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Privacy policy and legal notices" data-fr="Politique de confidentialité et mentions légales">Privacy policy and legal notices</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Data processing register" data-fr="Registre de traitement des données">Data processing register</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Audit-ready from launch" data-fr="Conforme dès le lancement">Audit-ready from launch</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">⚙️</div><h3 class="card-title" data-en="Workflow Architecture" data-fr="Architecture n8n">Workflow Architecture</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Complex automations. Simple outcomes." data-fr="Automatisations complexes. Résultats simples.">Complex automations. Simple outcomes.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Custom n8n pipelines — visual and maintainable" data-fr="Pipelines n8n sur mesure — visuels et maintenables">Custom n8n pipelines — visual and maintainable</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="REST API integrations with any platform" data-fr="Intégrations API REST avec n'importe quelle plateforme">REST API integrations with any platform</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Error handling, logging and alerts built-in" data-fr="Gestion d'erreurs, logs et alertes intégrés">Error handling, logging and alerts built-in</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="From prototype to production in days" data-fr="Du prototype à la production en quelques jours">From prototype to production in days</span></li></ul></div><div class="service-card"><div style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;">🛠️</div><h3 class="card-title" data-en="DevOps & Infrastructure" data-fr="DevOps & Infrastructure">DevOps & Infrastructure</h3><p style="font-size:11px;color:rgba(255,255,255,.32);font-style:italic;margin-bottom:14px;line-height:1.5;" data-en="Infrastructure that never sleeps." data-fr="Infrastructure qui ne dort jamais.">Infrastructure that never sleeps.</p><ul style="list-style:none;padding:0;margin:0;"><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Docker, CI/CD, automated deployments" data-fr="Docker, CI/CD, déploiements automatisés">Docker, CI/CD, automated deployments</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Vercel, Railway, VPS — right tool for the job" data-fr="Vercel, Railway, VPS — le bon outil selon le projet">Vercel, Railway, VPS — right tool for the job</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Environment management: dev, staging, prod" data-fr="Gestion des environnements : dev, staging, prod">Environment management: dev, staging, prod</span></li><li style="font-size:12px;color:rgba(255,255,255,.55);display:flex;align-items:flex-start;gap:8px;line-height:1.6;margin-bottom:7px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;margin-top:2px;">›</span><span data-en="Monitoring, uptime alerts, rollback ready" data-fr="Monitoring, alertes, rollback prêts">Monitoring, uptime alerts, rollback ready</span></li></ul></div></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     PROJETS
+══════════════════════════════════════════════════ -->
+<section id="projects" style="background:#000;padding:96px 0;">
+  <div style="max-width:1152px;margin:0 auto;padding:0 24px;">
+
+    <div class="section-reveal" style="text-align:center;margin-bottom:64px;">
+      <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="My Projects" data-fr="Mes Projets">My Projects</span>
+      <h2 style="font-size:clamp(2.5rem,6vw,4rem);font-weight:500;line-height:1.1;">
+        Construit en vrai.<br/><span style="color:rgba(255,255,255,0.4);">Déployé en vrai.</span>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+
+      <div class="liquid-glass glass-card section-reveal" style="border-radius:28px;padding:32px;transition-delay:0.1s;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+          <div style="width:44px;height:44px;border-radius:16px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:20px;">🤖</div>
+          <span class="badge" style="font-size:10px;">POC Déployable</span>
+        </div>
+        <h3 class="card-title" style="font-size:1.2rem;" data-en="Voice AI Agent" data-fr="Agent Vocal IA">Voice AI Agent</h3>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;" data-en="Your phone. Automated." data-fr="Votre téléphone. Automatisé.">Your phone. Automated.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;"><span data-en="AI phone assistant. Answers, qualifies, redirects. 24/7, no human intervention. Live tests completed." data-fr="Assistant téléphonique IA. Répond, qualifie, redirige. 24h/24, 7j/7, sans intervention humaine. Tests réels effectués.">AI phone assistant. Answers, qualifies, redirects. 24/7, no human intervention. Live tests completed.</span></p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
+          <span class="badge" style="font-size:10px;">Vapi</span>
+          <span class="badge" style="font-size:10px;">OpenAI</span>
+          <span class="badge" style="font-size:10px;">ElevenLabs</span>
+          <span class="badge" style="font-size:10px;">Deepgram</span>
+        </div>
+        <a href="mailto:anrakotondrazah@gmail.com" class="liquid-glass" style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;"><span data-en="Request a demo" data-fr="Demander une démo">Request a demo</span></a>
+      </div>
+
+      <div class="liquid-glass glass-card section-reveal" style="border-radius:28px;padding:32px;transition-delay:0.2s;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+          <div style="width:44px;height:44px;border-radius:16px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:20px;">⚡</div>
+          <span class="badge" style="font-size:10px;">Opérationnel</span>
+        </div>
+        <h3 class="card-title" style="font-size:1.2rem;" data-en="Francenergies.com" data-fr="Francenergies.com">Francenergies.com</h3>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;" data-en="A known market. A system to dominate it." data-fr="Un marché connu. Un système pour le dominer.">A known market. A system to dominate it.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;"><span data-en="French B2B energy platform. Website + AI + 3 n8n workflows. GDPR compliant. Built alongside a full-time job." data-fr="Plateforme B2B CEE français. Site + IA intégrée + 3 workflows n8n de prospection automatisée. Conforme RGPD. Construit en parallèle d'un CDI.">French B2B energy platform. Website + AI + 3 n8n workflows. GDPR compliant. Built alongside a full-time job.</span></p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
+          <span class="badge" style="font-size:10px;">Next.js</span>
+          <span class="badge" style="font-size:10px;">OpenAI API</span>
+          <span class="badge" style="font-size:10px;">n8n</span>
+          <span class="badge" style="font-size:10px;">RGPD</span>
+        </div>
+        <a href="https://francenergies.com" target="_blank" class="liquid-glass" style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;">Voir le site →</a>
+      </div>
+
+      <div class="liquid-glass glass-card section-reveal" style="border-radius:28px;padding:32px;transition-delay:0.3s;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+          <div style="width:44px;height:44px;border-radius:16px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:20px;">🌐</div>
+          <span class="badge" style="font-size:10px;">En production</span>
+        </div>
+        <h3 class="card-title" style="font-size:1.2rem;" data-en="Full-Stack Web Solutions" data-fr="Solutions Web Full-Stack">Full-Stack Web Solutions</h3>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;" data-en="From mockup to production." data-fr="De la maquette à la production.">From mockup to production.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;"><span data-en="Professional websites and complete platforms. AI integration and GDPR compliance. One contact, from A to Z." data-fr="Sites vitrines et plateformes complètes. Option assistant IA intégré et conformité RGPD. Un seul interlocuteur, de A à Z.">Professional websites and complete platforms. AI integration and GDPR compliance. One contact, from A to Z.</span></p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
+          <span class="badge" style="font-size:10px;">React</span>
+          <span class="badge" style="font-size:10px;">Next.js</span>
+          <span class="badge" style="font-size:10px;">TypeScript</span>
+          <span class="badge" style="font-size:10px;">Vercel</span>
+        </div>
+        <a href="mailto:anrakotondrazah@gmail.com" class="liquid-glass" style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;"><span data-en="Discuss your project" data-fr="Discuter de votre projet">Discuss your project</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CONTACT — Vidéo full background (liquid glass ZIP)
+══════════════════════════════════════════════════ -->
+<section id="contact">
+
+  <!-- Vidéo background exactement comme dans react-liquid-glass-video-page -->
+  <video id="contact-vid" autoplay loop muted playsinline
+    src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto/v1784921378/example_b2awv5.webm">
+  </video>
+  <div id="contact-dark"></div>
+
+  <!-- Contenu (identique structure que liquid glass ZIP) -->
+  <div style="position:relative;z-index:10;width:100%;max-width:1152px;margin:0 auto;padding:0 16px;display:flex;flex-direction:column;min-height:100vh;">
+
+    <!-- CTA hero (comme HeroCTA du ZIP) -->
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:140px;gap:24px;">
+      <div class="liquid-glass badge" style="border-radius:999px;padding:8px 18px;display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">
+        ✦ &nbsp;Disponible · Immédiatement
+      </div>
+
+      <h2 style="font-size:clamp(3rem,8vw,6rem);font-weight:500;color:#fff;line-height:1.05;letter-spacing:-0.03em;max-width:800px;">
+        Vous savez ce qu'il<br/><span style="color:rgba(255,255,255,0.4);">vous reste à faire.</span>
+      </h2>
+
+      <p style="color:rgba(255,255,255,0.45);font-size:16px;max-width:480px;line-height:1.7;">
+        Depuis Madagascar pour le monde entier.<br/>Réponse garantie dans les 24h.
+      </p>
+
+      <!-- CTA buttons liquid glass -->
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px;">
+        <a href="mailto:anrakotondrazah@gmail.com"
+           class="liquid-glass"
+           style="border-radius:999px;padding:14px 32px;font-size:14px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;">
+          ✉️ &nbsp;anrakotondrazah@gmail.com
+        </a>
+        <a href="https://wa.me/261346223289?text=Hello%20Andry%21%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project."
+           class="liquid-glass"
+           style="border-radius:999px;padding:14px 32px;font-size:14px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;">
+          💬 &nbsp;WhatsApp
+        </a>
+        <a href="https://github.com/anrakotondrazah" target="_blank"
+           class="liquid-glass"
+           style="border-radius:999px;padding:14px 32px;font-size:14px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;">
+          ⌥ &nbsp;GitHub
+        </a>
+      </div>
+
+      <div style="width:1px;height:64px;background:linear-gradient(to bottom,rgba(255,255,255,0.2),transparent);margin-top:16px;"></div>
+    </div>
+
+    <div style="flex:1;"></div>
+
+    <!-- Footer liquid glass (identique au ZIP) -->
+    <div class="liquid-glass" style="border-radius:28px;padding:32px 28px 28px;margin-bottom:24px;color:rgba(255,255,255,0.65);">
+
+      <!-- Grid top -->
+      <div style="display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:32px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;">
+
+          <!-- Brand -->
+          <div style="grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <img src="/img/avatar.png" alt="Andry Eudes" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,0.1);"/>
+            <div>
+              <p style="color:#fff;font-weight:600;font-size:16px;">Andry Eudes</p>
+              <p style="font-size:11px;color:rgba(255,255,255,0.35);">Développeur Full-Stack & Ingénieur IA</p>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h4 style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#fff;font-weight:500;margin-bottom:14px;">Services</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:12px;">
+              <li><a href="mailto:anrakotondrazah@gmail.com" style="color:rgba(255,255,255,0.5);transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Agent Vocal IA</a></li>
+              <li><a href="mailto:anrakotondrazah@gmail.com" style="color:rgba(255,255,255,0.5);transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Site Web Professionnel</a></li>
+              <li><a href="mailto:anrakotondrazah@gmail.com" style="color:rgba(255,255,255,0.5);transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Automatisation Workflow</a></li>
+              <li><a href="mailto:anrakotondrazah@gmail.com" style="color:rgba(255,255,255,0.5);transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Prospection B2B Autonome</a></li>
+            </ul>
+          </div>
+
+          <!-- Projets -->
+          <div>
+            <h4 style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#fff;font-weight:500;margin-bottom:14px;">Projets</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:12px;">
+              <li><a href="https://francenergies.com" target="_blank" style="color:rgba(255,255,255,0.5);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Francenergies.com</a></li>
+              <li><a href="#projects" style="color:rgba(255,255,255,0.5);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Agent Vocal IA (POC)</a></li>
+              <li><a href="#projects" style="color:rgba(255,255,255,0.5);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Solutions Web</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#fff;font-weight:500;margin-bottom:14px;">Contact</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:12px;">
+              <li><a href="mailto:anrakotondrazah@gmail.com" style="color:rgba(255,255,255,0.5);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">anrakotondrazah@gmail.com</a></li>
+              <li><a href="tel:+261346223289" style="color:rgba(255,255,255,0.5);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">+261 34 62 232 89</a></li>
+              <li><a href="https://github.com/anrakotondrazah" target="_blank" style="color:rgba(255,255,255,0.5);" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">GitHub</a></li>
+              <li><span style="color:rgba(255,255,255,0.25);font-size:11px;">📍 Antananarivo, Madagascar</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom bar (comme le ZIP) -->
+      <div style="padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:12px;">
+        <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.3);">
+          © 2026 Andry Eudes Rakotondrazah · Madagascar
+        </p>
+        <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;">
+          Rejoindre :&nbsp;
+          <a href="mailto:anrakotondrazah@gmail.com" style="color:rgba(255,255,255,0.4);margin:0 6px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Email</a>
+          <a href="https://wa.me/261346223289?text=Hello%20Andry%21%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project." style="color:rgba(255,255,255,0.4);margin:0 6px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">WhatsApp</a>
+          <a href="https://github.com/anrakotondrazah" target="_blank" style="color:rgba(255,255,255,0.4);margin:0 6px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">GitHub</a>
+        </div>
+      </div>
+
+    </div><!-- /footer glass -->
+
+  </div>
+</section>
+<!-- ══ ARIA Bubble ══ -->
+<div id="aria-bubble" onclick="openAria('welcome')">
+  <div id="aria-hint"></div>
+  <div id="aria-orb">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ══ ARIA Chat Modal ══ -->
+<div id="aria-modal">
+  <div class="aria-backdrop" onclick="closeAria()"></div>
+  <div class="aria-panel">
+    <div class="aria-header">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.15);">
+          <img src="/img/avatar.png" alt="ARIA" style="width:100%;height:100%;object-fit:cover;"/>
+        </div>
+        <div>
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:15px;font-weight:600;color:#fff;margin:0;">ARIA</p>
+          <p style="font-size:11px;color:rgba(255,255,255,.4);margin:0;" data-en="Andry's AI Assistant · Online" data-fr="Assistante IA d'Andry · En ligne">Andry's AI Assistant · Online</p>
+        </div>
+      </div>
+      <button onclick="closeAria()" style="background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.6);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">&#x2715;</button>
+    </div>
+    <div id="aria-messages"></div>
+    <div id="aria-typing">
+      <div style="display:inline-flex;gap:4px;align-items:center;">
+        <span class="tdot" style="animation-delay:0s"></span>
+        <span class="tdot" style="animation-delay:.2s"></span>
+        <span class="tdot" style="animation-delay:.4s"></span>
+      </div>
+    </div>
+    <div class="aria-input-row">
+      <input id="aria-input" type="text" placeholder="Type your message..."/>
+      <button onclick="sendAria()" data-en="Send" data-fr="Envoyer">Send</button>
+    </div>
+    <div id="aria-notify">
+      <button onclick="notifyAndry()" data-en="Send conversation to Andry via WhatsApp" data-fr="Envoyer la conversation à Andry via WhatsApp">Send conversation to Andry via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Scripts — order matters: lang first, then hero, about, contact, aria -->
+<script src="/assets/js/lang.js"></script>
+<script src="/assets/js/hero.js"></script>
+<script src="/assets/js/about.js"></script>
+<script src="/assets/js/contact.js"></script>
+<script src="/assets/js/aria.js"></script>
+</body>
+</html>
