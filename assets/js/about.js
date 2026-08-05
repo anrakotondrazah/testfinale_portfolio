@@ -63,10 +63,14 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // Clic sur les dots
-aboutDots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    const step = parseInt(dot.dataset.step);
-    const targetScroll =
-      aboutWrapper.offsetTop + (step / 4) * (aboutWrapper.offsetHeight - window.innerHeight);
-    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-  });
+aboutDots.forEach(dot => { 
+    dot.addEventListener('click', () => { 
+        const step = parseInt(dot.dataset.step); 
+        const targetScroll = aboutWrapper.offsetTop + (step / 4) * (aboutWrapper.offsetHeight - window.innerHeight); 
+        
+        window.scrollTo({ 
+            top: targetScroll, 
+            behavior: 'smooth' 
+        }); 
+    });
+});
