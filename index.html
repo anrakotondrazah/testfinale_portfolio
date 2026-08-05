@@ -127,72 +127,555 @@
 
     <div id="about-overlay"></div>
 
-<!-- Contenu texte en bas à gauche -->
-<div id="about-content">
-  
-  <!-- PANEL 1 -->
-  <div class="about-panel active" id="ap1">
-    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="01 — ABOUT" data-fr="01 — À PROPOS">01 — ABOUT</span>
-    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-      <span data-en="Before coding," data-fr="Avant de coder,">Before coding,</span><br/>
-      <span style="color:rgba(255,255,255,0.4);" data-en="I listened." data-fr="j'écoutais.">I listened.</span>
-    </h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-      <span data-en="Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes." data-fr="Trois ans à gérer 80 appels clients par jour dans le secteur de l'énergie chez Concentrix. J'ai appris à comprendre un marché en profondeur, à qualifier un besoin en 30 secondes, et à convaincre en 5 minutes.">Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes.</span>
-    </p>
-  </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Godmode</title>
+<style>
 
-  <!-- PANEL 2 -->
-  <div class="about-panel" id="ap2">
-    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="02 — JOURNEY" data-fr="02 — PARCOURS">02 — JOURNEY</span>
-    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-      <span data-en="I built" data-fr="Je construisais">I built</span><br/>
-      <span style="color:rgba(255,255,255,0.4);" data-en="on the side." data-fr="en parallèle.">on the side.</span>
-    </h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-      <span data-en="At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to." data-fr="Chez RTA CALL, je gérais 10 agents et coordonnais la direction. En même temps — la nuit, les week-ends — je construisais Francenergies.com. Sans que personne ne me le demande.">At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to.</span>
-    </p>
-  </div>
+/* ─── RESET & TOKENS ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- PANEL 3 -->
-  <div class="about-panel" id="ap3">
-    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="03 — FRANCENERGIES" data-fr="03 — FRANCENERGIES">03 — FRANCENERGIES</span>
-    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-      <span data-en="A system" data-fr="Un système">A system</span><br/>
-      <span style="color:rgba(255,255,255,0.4);" data-en="that runs itself." data-fr="qui tourne seul.">that runs itself.</span>
-    </h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-      <span data-en="Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational." data-fr="Site professionnel + assistant IA intégré + 3 workflows n8n interconnectés. Collecte B2B, enrichissement, cold email IA personnalisé par secteur. Conforme RGPD. Opérationnel.">Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational.</span>
-    </p>
-  </div>
+:root {
+  --bg:           #0a0a0a;
+  --surface:      rgba(255,255,255,0.04);
+  --border:       rgba(255,255,255,0.08);
+  --white:        #ffffff;
+  --white-40:     rgba(255,255,255,0.40);
+  --white-65:     rgba(255,255,255,0.65);
+  --accent:       rgba(255,255,255,0.12);
 
-  <!-- PANEL 4 -->
-  <div class="about-panel" id="ap4">
-    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="04 — TODAY" data-fr="04 — AUJOURD'HUI">04 — TODAY</span>
-    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-      <span data-en="From Madagascar," data-fr="Depuis Madagascar,">From Madagascar,</span><br/>
-      <span style="color:rgba(255,255,255,0.4);" data-en="for the world." data-fr="pour le monde.">for the world.</span>
-    </h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-      <span data-en="I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you." data-fr="Je conçois des solutions sur mesure, déployées, documentées, qui tournent seules. Pas des templates. Des systèmes qui font le travail à votre place.">I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you.</span>
-    </p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
-      <span class="badge" data-en="Madagascar · Full Remote" data-fr="Madagascar · Full Remote">Madagascar · Full Remote</span>
-      <span class="badge" data-en="3 years energy sector" data-fr="3 ans secteur énergie">3 years energy sector</span>
-      <span class="badge" data-en="AI + Web + n8n + GDPR" data-fr="IA + Web + n8n + RGPD">AI + Web + n8n + GDPR</span>
-      <span class="badge" data-en="Systemic thinking" data-fr="Pensée systémique">Systemic thinking</span>
+  --badge-bg:     rgba(255,255,255,0.07);
+  --badge-border: rgba(255,255,255,0.13);
+
+  --dot-idle:     rgba(255,255,255,0.20);
+  --dot-active:   var(--white);
+
+  --transition-panel: 0.55s cubic-bezier(0.77,0,0.18,1);
+  --transition-dot:   0.3s ease;
+  --transition-badge: 0.2s ease;
+
+  --font-main:    'Inter', system-ui, -apple-system, sans-serif;
+  --fs-badge:     11px;
+  --fs-body:      15px;
+  --lh-body:      1.75;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── SECTION WRAPPER ────────────────────────────────────────── */
+.about-section {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  padding: clamp(40px, 8vw, 80px) clamp(24px, 6vw, 60px);
+  /* Protection contre le scroll natif pendant le swipe */
+  touch-action: pan-y;
+}
+
+/* ─── BADGES ─────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--badge-border);
+  background: var(--badge-bg);
+  font-size: var(--fs-badge);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white-65);
+  white-space: nowrap;
+  transition: background var(--transition-badge),
+              border-color var(--transition-badge);
+  cursor: default;
+  user-select: none;
+}
+
+.badge:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* ─── PANELS ─────────────────────────────────────────────────── */
+#about-content {
+  position: relative;
+  min-height: 280px; /* évite le layout shift */
+}
+
+.about-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+
+  /* État IDLE — caché à droite */
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  transition:
+    opacity   var(--transition-panel),
+    transform var(--transition-panel);
+  will-change: opacity, transform;
+}
+
+/* État ACTIF */
+.about-panel.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative; /* reprend le flux pour min-height */
+}
+
+/* État SORTIE (précédent) — part à gauche */
+.about-panel.leaving {
+  opacity: 0;
+  transform: translateX(-40px);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ─── ÉLÉMENTS DU PANEL ──────────────────────────────────────── */
+.panel-badge {
+  margin-bottom: 20px;
+}
+
+.panel-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.panel-title .muted {
+  color: var(--white-40);
+  display: block;
+}
+
+.panel-body {
+  font-size: var(--fs-body);
+  color: var(--white-65);
+  line-height: var(--lh-body);
+  max-width: 500px;
+}
+
+/* Badges de compétences (panel 4) */
+.panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+/* ─── ANIMATIONS STAGGERED ───────────────────────────────────── */
+.about-panel.active .panel-badge  { animation: fadeUp 0.5s 0.05s both ease; }
+.about-panel.active .panel-title  { animation: fadeUp 0.55s 0.12s both ease; }
+.about-panel.active .panel-body   { animation: fadeUp 0.55s 0.20s both ease; }
+.about-panel.active .panel-tags   { animation: fadeUp 0.55s 0.30s both ease; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+
+/* ─── DOTS ───────────────────────────────────────────────────── */
+#about-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.about-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dot-idle);
+  cursor: pointer;
+  transition:
+    background   var(--transition-dot),
+    transform    var(--transition-dot),
+    width        var(--transition-dot);
+  border: none;
+  padding: 0;
+  /* cible tactile élargie */
+  position: relative;
+}
+.about-dot::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+
+.about-dot.active {
+  background: var(--dot-active);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ─── PROGRESS BAR (optionnel, ligne fine en bas) ────────────── */
+.about-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  width: 100%;
+  overflow: hidden;
+}
+.about-progress-fill {
+  height: 100%;
+  background: var(--white);
+  transition: width var(--transition-panel);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .about-panel { transform: translateX(30px); }
+  .about-panel.leaving { transform: translateX(-30px); }
+  #about-content { min-height: 320px; }
+}
+
+/* ─── FOCUS VISIBLE (a11y) ───────────────────────────────────── */
+.about-dot:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  SECTION ABOUT                                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<section class="about-section"
+         role="region"
+         aria-label="À propos"
+         id="about-section">
+
+  <!-- Lang toggle (exemple) -->
+  <button id="lang-toggle"
+          aria-label="Switch language"
+          style="
+            position:absolute; top:24px; right:24px;
+            background:var(--badge-bg); border:1px solid var(--badge-border);
+            color:var(--white-65); padding:5px 14px; border-radius:100px;
+            font-size:11px; font-weight:600; letter-spacing:0.08em;
+            cursor:pointer; text-transform:uppercase;
+            transition: background 0.2s;
+          ">EN / FR</button>
+
+  <!-- ─ PANELS ──────────────────────────────────────────────── -->
+  <div id="about-content"
+       role="tabpanel"
+       aria-live="polite">
+
+    <!-- Panel 1 -->
+    <div class="about-panel active"
+         id="ap1"
+         data-index="0"
+         aria-hidden="false">
+
+      <span class="badge panel-badge"
+            data-en="01 — ABOUT"
+            data-fr="01 — À PROPOS">01 — ABOUT</span>
+
+      <h2 class="panel-title">
+        Avant de coder,<br/>
+        <span class="muted"
+              data-en="I listened."
+              data-fr="j'écoutais.">I listened.</span>
+      </h2>
+
+      <p class="panel-body">
+        <span data-en="Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes."
+              data-fr="Trois ans à gérer 80 appels clients par jour dans le secteur de l'énergie chez Concentrix. J'ai appris à comprendre un marché en profondeur, à qualifier un besoin en 30 secondes, et à convaincre en 5 minutes.">
+          Three years handling 80 client calls a day in the energy sector at Concentrix.
+          I learned to understand a market in depth, qualify a need in 30 seconds,
+          and convince in 5 minutes.
+        </span>
+      </p>
     </div>
+
+    <!-- Panel 2 -->
+    <div class="about-panel"
+         id="ap2"
+         data-index="1"
+         aria-hidden="true">
+
+      <span class="badge panel-badge"
+            data-en="02 — JOURNEY"
+            data-fr="02 — PARCOURS">02 — JOURNEY</span>
+
+      <h2 class="panel-title">
+        Je construisais<br/>
+        <span class="muted"
+              data-en="on the side."
+              data-fr="en parallèle.">on the side.</span>
+      </h2>
+
+      <p class="panel-body">
+        <span data-en="At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to."
+              data-fr="Chez RTA CALL, je gérais 10 agents et coordonnais la direction. En même temps — la nuit, les week-ends — je construisais Francenergies.com. Sans que personne ne me le demande.">
+          At RTA CALL, I managed 10 agents and coordinated management.
+          At the same time — nights, weekends — I was building Francenergies.com.
+          Without anyone asking me to.
+        </span>
+      </p>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="about-panel"
+         id="ap3"
+         data-index="2"
+         aria-hidden="true">
+
+      <span class="badge panel-badge"
+            data-en="03 — FRANCENERGIES"
+            data-fr="03 — FRANCENERGIES">03 — FRANCENERGIES</span>
+
+      <h2 class="panel-title">
+        Un système<br/>
+        <span class="muted"
+              data-en="that runs itself."
+              data-fr="qui tourne seul.">that runs itself.</span>
+      </h2>
+
+      <p class="panel-body">
+        <span data-en="Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational."
+              data-fr="Site professionnel + assistant IA intégré + 3 workflows n8n interconnectés. Collecte B2B, enrichissement, cold email IA personnalisé par secteur. Conforme RGPD. Opérationnel.">
+          Professional website + integrated AI assistant + 3 n8n workflows.
+          B2B collection, enrichment, AI-personalized cold email by sector.
+          GDPR compliant. Operational.
+        </span>
+      </p>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="about-panel"
+         id="ap4"
+         data-index="3"
+         aria-hidden="true">
+
+      <span class="badge panel-badge"
+            data-en="04 — TODAY"
+            data-fr="04 — AUJOURD'HUI">04 — TODAY</span>
+
+      <h2 class="panel-title">
+        Depuis Madagascar,<br/>
+        <span class="muted"
+              data-en="for the world."
+              data-fr="pour le monde.">for the world.</span>
+      </h2>
+
+      <p class="panel-body">
+        <span data-en="I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you."
+              data-fr="Je conçois des solutions sur mesure, déployées, documentées, qui tournent seules. Pas des templates. Des systèmes qui font le travail à votre place.">
+          I design custom solutions — deployed, documented, self-running.
+          Not templates. Systems that do the work for you.
+        </span>
+      </p>
+
+      <div class="panel-tags">
+        <span class="badge" data-en="Madagascar · Full Remote" data-fr="Madagascar · Full Remote">Madagascar · Full Remote</span>
+        <span class="badge" data-en="3 years energy sector"    data-fr="3 ans secteur énergie">3 years energy sector</span>
+        <span class="badge" data-en="AI + Web + n8n + GDPR"   data-fr="IA + Web + n8n + RGPD">AI + Web + n8n + RGPD</span>
+        <span class="badge" data-en="Systemic thinking"        data-fr="Pensée systémique">Systemic thinking</span>
+      </div>
+    </div>
+
+  </div><!-- /about-content -->
+
+  <!-- ─ PROGRESS BAR ────────────────────────────────────────── -->
+  <div class="about-progress" aria-hidden="true">
+    <div class="about-progress-fill" id="about-progress-fill"></div>
   </div>
 
-</div><!-- /about-content -->
+  <!-- ─ DOTS ───────────────────────────────────────────────── -->
+  <nav id="about-dots"
+       role="tablist"
+       aria-label="Navigation sections">
+    <button class="about-dot active"
+            role="tab"
+            data-step="0"
+            aria-selected="true"
+            aria-label="Section 1 — About"></button>
+    <button class="about-dot"
+            role="tab"
+            data-step="1"
+            aria-selected="false"
+            aria-label="Section 2 — Journey"></button>
+    <button class="about-dot"
+            role="tab"
+            data-step="2"
+            aria-selected="false"
+            aria-label="Section 3 — Francenergies"></button>
+    <button class="about-dot"
+            role="tab"
+            data-step="3"
+            aria-selected="false"
+            aria-label="Section 4 — Today"></button>
+  </nav>
 
-<!-- Dots de progression -->
-<div id="about-dots">
-  <div class="about-dot active" data-step="0"></div>
-  <div class="about-dot" data-step="1"></div>
-  <div class="about-dot" data-step="2"></div>
-  <div class="about-dot" data-step="3"></div>
-</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  JAVASCRIPT — GODMODE ENGINE                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── STATE ────────────────────────────────────────────────── */
+  const TOTAL   = 4;
+  let current   = 0;
+  let lang      = 'en';   // 'en' | 'fr'
+  let isAnimating = false;
+
+  /* ── DOM REFS ─────────────────────────────────────────────── */
+  const panels   = [...document.querySelectorAll('.about-panel')];
+  const dots     = [...document.querySelectorAll('.about-dot')];
+  const fill     = document.getElementById('about-progress-fill');
+  const langBtn  = document.getElementById('lang-toggle');
+
+  /* ── NAVIGATION CORE ──────────────────────────────────────── */
+  function goTo(next) {
+    if (next === current || isAnimating) return;
+    if (next < 0 || next >= TOTAL) return;
+
+    isAnimating = true;
+
+    const leaving = panels[current];
+    const entering = panels[next];
+
+    /* 1. Marquer le panel sortant */
+    leaving.classList.add('leaving');
+    leaving.classList.remove('active');
+    leaving.setAttribute('aria-hidden', 'true');
+
+    /* 2. Marquer le panel entrant */
+    entering.classList.add('active');
+    entering.setAttribute('aria-hidden', 'false');
+
+    /* 3. Mettre à jour les dots */
+    dots[current].classList.remove('active');
+    dots[current].setAttribute('aria-selected', 'false');
+    dots[next].classList.add('active');
+    dots[next].setAttribute('aria-selected', 'true');
+
+    /* 4. Progress bar */
+    updateProgress(next);
+
+    /* 5. Nettoyer après transition */
+    const DURATION = 600; // doit correspondre à --transition-panel
+    setTimeout(() => {
+      leaving.classList.remove('leaving');
+      current = next;
+      isAnimating = false;
+    }, DURATION);
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  /* ── PROGRESS BAR ─────────────────────────────────────────── */
+  function updateProgress(idx) {
+    const pct = ((idx + 1) / TOTAL) * 100;
+    fill.style.width = pct + '%';
+  }
+
+  /* ── DOTS CLICK ───────────────────────────────────────────── */
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      goTo(+dot.dataset.step);
+    });
+  });
+
+  /* ── KEYBOARD ─────────────────────────────────────────────── */
+  document.addEventListener('keydown', e => {
+    const section = document.getElementById('about-section');
+    if (!section.matches(':hover') &&
+        document.activeElement.closest('#about-section') === null) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        e.preventDefault(); next(); break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        e.preventDefault(); prev(); break;
+    }
+  });
+
+  /* ── WHEEL ────────────────────────────────────────────────── */
+  let wheelLock = false;
+  document.getElementById('about-section').addEventListener('wheel', e => {
+    e.preventDefault();
+    if (wheelLock) return;
+    wheelLock = true;
+    setTimeout(() => { wheelLock = false; }, 800);
+    e.deltaY > 0 ? next() : prev();
+  }, { passive: false });
+
+  /* ── TOUCH / SWIPE ────────────────────────────────────────── */
+  let touchStartX = 0;
+  let touchStartY = 0;
+  const section = document.getElementById('about-section');
+
+  section.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  section.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    /* Swipe horizontal dominant > 40px */
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
+  }, { passive: true });
+
+  /* ── INTERNATIONALISATION ─────────────────────────────────── */
+  function applyLang(newLang) {
+    lang = newLang;
+    document.querySelectorAll('[data-en][data-fr]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+    langBtn.textContent = lang === 'en' ? 'FR' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  langBtn.addEventListener('click', () => {
+    applyLang(lang === 'en' ? 'fr' : 'en');
+  });
+
+  /* ── INIT ─────────────────────────────────────────────────── */
+  updateProgress(0);
+  applyLang('en'); // langue par défaut
+
+})();
+</script>
+
+</body>
+</html>
 
 
 
