@@ -387,7 +387,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(255,255,255,.05); }
 
-/* ── ARIA Bubble Liquid Glass ── */
+/* ── ARIA Bubble ── */
 #aria-bubble {
   position: fixed;
   bottom: 32px;
@@ -400,18 +400,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   gap: 12px;
 }
 
+/* Bulle hint — liquid glass pill */
 #aria-hint {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 10px 18px;
   font-size: 13px;
   color: rgba(255,255,255,0.85);
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.12), 0 4px 24px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.12),
+              0 4px 24px rgba(0,0,0,0.30);
+  display: none; /* aria.js gère l'affichage */
 }
 #aria-hint::before {
   content: '';
@@ -426,35 +429,37 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     rgba(255,255,255,0)    60%,
     rgba(255,255,255,0.15) 80%,
     rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
+/* Orb principal — blob morphing liquid glass */
 #aria-orb {
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow:
-    inset 0 1px 1px rgba(255,255,255,0.12),
-    0 0 28px rgba(255,191,72,0.25),
-    0 8px 32px rgba(190,74,29,0.30);
-  animation: aria-glow 3s ease-in-out infinite;
-  overflow: visible;
+  overflow: hidden;
+  animation:
+    aria-morph 8s ease-in-out infinite,
+    aria-glow  3s ease-in-out infinite;
 }
+
+/* Bordure liquid glass sur l'orb */
 #aria-orb::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 50%;
+  border-radius: inherit;
   padding: 1.4px;
   background: linear-gradient(180deg,
     rgba(255,255,255,0.45) 0%,
@@ -463,47 +468,52 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     rgba(255,255,255,0)    60%,
     rgba(255,255,255,0.15) 80%,
     rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  z-index: 2;
 }
+
+/* Lumière orange interne */
 #aria-orb::after {
   content: '';
   position: absolute;
-  inset: -10px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,191,72,0.30);
-  animation: aria-ring 3s ease-out infinite;
-  pointer-events: none;
-}
-.aria-ring-outer {
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,191,72,0.12);
-  animation: aria-ring 3s ease-out infinite;
-  animation-delay: 1s;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 110%,
+    rgba(255,191,72,0.45) 0%,
+    rgba(190,74,29,0.25)  45%,
+    transparent           70%
+  );
+  z-index: 1;
   pointer-events: none;
 }
 
+/* Blob morphing */
+@keyframes aria-morph {
+  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25%     { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50%     { border-radius: 50% 60% 30% 40% / 60% 40% 60% 30%; }
+  75%     { border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%; }
+}
+
+/* Pulsation glow orange */
 @keyframes aria-glow {
   0%,100% {
     box-shadow:
       inset 0 1px 1px rgba(255,255,255,0.12),
-      0 0 20px rgba(255,191,72,0.20),
-      0 8px 32px rgba(190,74,29,0.25);
+      0 0 22px rgba(255,191,72,0.25),
+      0 8px 32px rgba(190,74,29,0.30);
   }
   50% {
     box-shadow:
       inset 0 1px 1px rgba(255,255,255,0.12),
-      0 0 50px rgba(255,191,72,0.50),
-      0 8px 40px rgba(190,74,29,0.50);
+      0 0 55px rgba(255,191,72,0.60),
+      0 8px 48px rgba(190,74,29,0.55);
   }
-}
-@keyframes aria-ring {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  100% { transform: scale(1.6); opacity: 0;   }
 }
 
 /* ── ARIA modal ── */
