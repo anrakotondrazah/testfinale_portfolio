@@ -387,27 +387,66 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(255,255,255,.05); }
 
-/* ── ARIA bubble ── */
+/* ── ARIA Loader Bubble ── */
 #aria-bubble {
-  position: fixed; bottom: 24px; right: 24px; z-index: 500;
-  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
-#aria-orb {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: linear-gradient(135deg,#e8702a,#c45a20);
-  box-shadow: 0 4px 24px rgba(232,112,42,.4);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .2s, box-shadow .2s; flex-shrink: 0;
+.aria-loader {
+  --color-one: #ffbf48;
+  --color-two: #be4a1d;
+  --color-three: #ffbf4780;
+  --color-four: #bf4a1d80;
+  --color-five: #ffbf4740;
+  --time-animation: 2s;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 0 var(--color-three), 0 20px 50px 0 var(--color-four);
+  animation: aria-colorize calc(var(--time-animation) * 3) ease-in-out infinite;
 }
-#aria-bubble:hover #aria-orb { transform: scale(1.08); box-shadow: 0 8px 32px rgba(232,112,42,.5); }
-#aria-hint {
-  background: rgba(15,15,25,.95); backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,.15); border-radius: 12px;
-  padding: 8px 14px; font-size: 12px; color: rgba(255,255,255,.8);
-  max-width: 220px; line-height: 1.5;
-  opacity: 0; transition: opacity .4s; pointer-events: none;
+.aria-loader::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  border-top: solid 1px var(--color-one);
+  border-bottom: solid 1px var(--color-two);
+  background: linear-gradient(180deg, var(--color-five), var(--color-four));
+  box-shadow: inset 0 10px 10px 0 var(--color-three), inset 0 -10px 10px 0 var(--color-four);
 }
-#aria-hint.show { opacity: 1; }
+.aria-loader .aria-box {
+  width: 70px; height: 70px;
+  background: linear-gradient(180deg, var(--color-one) 30%, var(--color-two) 70%);
+  mask: url(#aria-clipping);
+  -webkit-mask: url(#aria-clipping);
+}
+.aria-loader svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 70px; height: 70px;
+}
+.aria-loader svg #aria-clipping { filter: contrast(15); animation: aria-roundness calc(var(--time-animation) / 2) linear infinite; }
+.aria-loader svg #aria-clipping polygon { filter: blur(5px); }
+.aria-loader svg #aria-clipping polygon:nth-child(1) { transform-origin: 75% 25%; transform: rotate(90deg); }
+.aria-loader svg #aria-clipping polygon:nth-child(2) { transform-origin: 50% 50%; animation: aria-rotation var(--time-animation) linear infinite reverse; }
+.aria-loader svg #aria-clipping polygon:nth-child(3) { transform-origin: 50% 60%; animation: aria-rotation var(--time-animation) linear infinite; animation-delay: calc(var(--time-animation) / -3); }
+.aria-loader svg #aria-clipping polygon:nth-child(4) { transform-origin: 40% 40%; animation: aria-rotation var(--time-animation) linear infinite reverse; }
+.aria-loader svg #aria-clipping polygon:nth-child(5) { transform-origin: 40% 40%; animation: aria-rotation var(--time-animation) linear infinite reverse; animation-delay: calc(var(--time-animation) / -2); }
+.aria-loader svg #aria-clipping polygon:nth-child(6) { transform-origin: 60% 40%; animation: aria-rotation var(--time-animation) linear infinite; }
+.aria-loader svg #aria-clipping polygon:nth-child(7) { transform-origin: 60% 40%; animation: aria-rotation var(--time-animation) linear infinite; animation-delay: calc(var(--time-animation) / -1.5); }
+@keyframes aria-rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes aria-roundness { 0%,60%,100% { filter: contrast(15); } 20%,40% { filter: contrast(3); } }
+@keyframes aria-colorize { 0%,100% { filter: hue-rotate(0deg); } 20% { filter: hue-rotate(-30deg); } 40% { filter: hue-rotate(-60deg); } 60% { filter: hue-rotate(-90deg); } 80% { filter: hue-rotate(-45deg); } }
 
 /* ── ARIA modal ── */
 #aria-modal {
