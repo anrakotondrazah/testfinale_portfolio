@@ -470,6 +470,22 @@
   </div>
 </div>
 
+     <!-- SVG Goo Filter pour ARIA -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;"
+     aria-hidden="true">
+  <defs>
+    <filter id="aria-goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 20 -9"
+        result="goo"/>
+    </filter>
+  </defs>
+</svg>
 
 <!-- Scripts — order matters: lang first, then hero, about, contact, aria -->
 <script src="/assets/js/lang.js"></script>
