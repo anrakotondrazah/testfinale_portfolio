@@ -387,40 +387,44 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(255,255,255,.05); }
 
-/* ── ARIA Bubble ── */
+/* ═══ ARIA BUBBLE — FINAL ═══ */
 #aria-bubble {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 9999;
+  position: fixed !important;
+  bottom: 32px !important;
+  right: 32px !important;
+  z-index: 9999 !important;
   cursor: pointer;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
+  background: none !important;
+  border: none !important;
+  width: auto !important;
+  height: auto !important;
 }
 
-/* Bulle hint — liquid glass pill */
+/* Hint pill — liquid glass */
 #aria-hint {
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 10px 18px;
+  background: rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 20px !important;
+  padding: 10px 18px !important;
   font-size: 13px;
   color: rgba(255,255,255,0.85);
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.12),
-              0 4px 24px rgba(0,0,0,0.30);
-  display: none; /* aria.js gère l'affichage */
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.12),
+    0 4px 24px rgba(0,0,0,0.30) !important;
 }
 #aria-hint::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
+  border-radius: 20px;
   padding: 1.4px;
   background: linear-gradient(180deg,
     rgba(255,255,255,0.45) 0%,
@@ -436,30 +440,29 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   pointer-events: none;
 }
 
-/* Orb principal — blob morphing liquid glass */
+/* Orb — liquid glass + glow */
 #aria-orb {
-  width: 64px;
-  height: 64px;
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  display: flex;
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 50% !important;
+  position: relative;
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  position: relative;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  overflow: hidden;
+  background: rgba(255,255,255,0.03) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
   animation:
-    aria-morph 8s ease-in-out infinite,
-    aria-glow  3s ease-in-out infinite;
+    aria-colorize 6s ease-in-out infinite,
+    aria-glow-pulse 3s ease-in-out infinite;
 }
 
-/* Bordure liquid glass sur l'orb */
+/* Liquid glass border ring */
 #aria-orb::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
+  border-radius: 50%;
   padding: 1.4px;
   background: linear-gradient(180deg,
     rgba(255,255,255,0.45) 0%,
@@ -473,46 +476,90 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* Lumière orange interne */
-#aria-orb::after {
-  content: '';
+/* Cercle clip — contient les blobs */
+.aria-orb-clip {
   position: absolute;
   inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    circle at 50% 110%,
-    rgba(255,191,72,0.45) 0%,
-    rgba(190,74,29,0.25)  45%,
-    transparent           70%
-  );
-  z-index: 1;
-  pointer-events: none;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
-/* Blob morphing */
-@keyframes aria-morph {
-  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  25%     { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  50%     { border-radius: 50% 60% 30% 40% / 60% 40% 60% 30%; }
-  75%     { border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%; }
+/* Couche goo — filtre sur les blobs */
+.aria-goo-layer {
+  position: absolute;
+  inset: -20px;
+  filter: url(#aria-goo);
 }
 
-/* Pulsation glow orange */
-@keyframes aria-glow {
+/* Blob de base — remplit le cercle */
+.aria-goo-base {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffbf48 30%, #be4a1d 70%);
+}
+
+/* Blobs orbitants */
+.aria-goo-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffbf48 30%, #be4a1d 70%);
+  top: 50%;
+  left: 50%;
+}
+.aria-goo-blob-1 { width:34px; height:34px; animation: aria-orbit-A 2s   linear infinite; }
+.aria-goo-blob-2 { width:30px; height:30px; animation: aria-orbit-B 2s   linear infinite reverse; animation-delay:-0.33s; }
+.aria-goo-blob-3 { width:28px; height:28px; animation: aria-orbit-A 3s   linear infinite; animation-delay:-1s; }
+.aria-goo-blob-4 { width:24px; height:24px; animation: aria-orbit-B 2.5s linear infinite; animation-delay:-0.5s; }
+.aria-goo-blob-5 { width:22px; height:22px; animation: aria-orbit-A 2.5s linear infinite reverse; animation-delay:-1.5s; }
+.aria-goo-blob-6 { width:20px; height:20px; animation: aria-orbit-B 3s   linear infinite; animation-delay:-0.7s; }
+
+/* Icône chat au-dessus */
+.aria-chat-icon {
+  position: relative;
+  z-index: 4;
+  flex-shrink: 0;
+}
+
+/* ── Keyframes ── */
+@keyframes aria-orbit-A {
+  0%   { transform: translate(calc(-50% + 18px), calc(-50% - 5px))  scale(1);    }
+  25%  { transform: translate(calc(-50% + 5px),  calc(-50% + 18px)) scale(0.82); }
+  50%  { transform: translate(calc(-50% - 18px), calc(-50% + 5px))  scale(1);    }
+  75%  { transform: translate(calc(-50% - 5px),  calc(-50% - 18px)) scale(0.82); }
+  100% { transform: translate(calc(-50% + 18px), calc(-50% - 5px))  scale(1);    }
+}
+@keyframes aria-orbit-B {
+  0%   { transform: translate(calc(-50% - 14px), calc(-50% + 10px)) scale(0.9);  }
+  33%  { transform: translate(calc(-50% + 14px), calc(-50% + 10px)) scale(1.1);  }
+  66%  { transform: translate(calc(-50%),        calc(-50% - 20px)) scale(0.9);  }
+  100% { transform: translate(calc(-50% - 14px), calc(-50% + 10px)) scale(0.9);  }
+}
+@keyframes aria-colorize {
+  0%,100% { filter: hue-rotate(0deg);   }
+  20%     { filter: hue-rotate(-30deg); }
+  40%     { filter: hue-rotate(-60deg); }
+  60%     { filter: hue-rotate(-90deg); }
+  80%     { filter: hue-rotate(-45deg); }
+}
+@keyframes aria-glow-pulse {
   0%,100% {
     box-shadow:
-      inset 0 1px 1px rgba(255,255,255,0.12),
+      inset 0 1px 1px rgba(255,255,255,0.18),
       0 0 22px rgba(255,191,72,0.25),
-      0 8px 32px rgba(190,74,29,0.30);
+      0 20px 45px rgba(190,74,29,0.25);
   }
   50% {
     box-shadow:
-      inset 0 1px 1px rgba(255,255,255,0.12),
-      0 0 55px rgba(255,191,72,0.60),
-      0 8px 48px rgba(190,74,29,0.55);
+      inset 0 1px 1px rgba(255,255,255,0.18),
+      0 0 55px rgba(255,191,72,0.65),
+      0 20px 60px rgba(190,74,29,0.60);
   }
 }
 
