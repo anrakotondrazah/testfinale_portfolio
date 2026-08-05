@@ -127,67 +127,73 @@
 
     <div id="about-overlay"></div>
 
-    <!-- Contenu texte en bas à gauche -->
-    <div id="about-content">
-
-      <div class="about-panel active" id="ap1">
-        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="01 — ABOUT" data-fr="01 — À PROPOS">01 — ABOUT</span>
-        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-          Avant de coder,<br/><span style="color:rgba(255,255,255,0.4);" data-en="I listened." data-fr="j'écoutais.">I listened.</span>
-        </h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-          <span data-en="Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes." data-fr="Trois ans à gérer 80 appels clients par jour dans le secteur de l'énergie chez Concentrix. J'ai appris à comprendre un marché en profondeur, à qualifier un besoin en 30 secondes, et à convaincre en 5 minutes.">Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes.</span>
-        </p>
-      </div>
-
-      <div class="about-panel" id="ap2">
-        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="02 — JOURNEY" data-fr="02 — PARCOURS">02 — JOURNEY</span>
-        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-          Je construisais<br/><span style="color:rgba(255,255,255,0.4);" data-en="on the side." data-fr="en parallèle.">on the side.</span>
-        </h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-          <span data-en="At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to." data-fr="Chez RTA CALL, je gérais 10 agents et coordonnais la direction. En même temps — la nuit, les week-ends — je construisais Francenergies.com. Sans que personne ne me le demande.">At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to.</span>
-        </p>
-      </div>
-
-      <div class="about-panel" id="ap3">
-        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="03 — FRANCENERGIES" data-fr="03 — FRANCENERGIES">03 — FRANCENERGIES</span>
-        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-          Un système<br/><span style="color:rgba(255,255,255,0.4);" data-en="that runs itself." data-fr="qui tourne seul.">that runs itself.</span>
-        </h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-          <span data-en="Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational." data-fr="Site professionnel + assistant IA intégré + 3 workflows n8n interconnectés. Collecte B2B, enrichissement, cold email IA personnalisé par secteur. Conforme RGPD. Opérationnel.">Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational.</span>
-        </p>
-      </div>
-
-      <div class="about-panel" id="ap4">
-        <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="04 — TODAY" data-fr="04 — AUJOURD'HUI">04 — TODAY</span>
-        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
-          Depuis Madagascar,<br/><span style="color:rgba(255,255,255,0.4);" data-en="for the world." data-fr="pour le monde.">for the world.</span>
-        </h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
-          <span data-en="I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you." data-fr="Je conçois des solutions sur mesure, déployées, documentées, qui tournent seules. Pas des templates. Des systèmes qui font le travail à votre place.">I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you.</span>
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
-          <span class="badge" data-en="Madagascar · Full Remote" data-fr="Madagascar · Full Remote">Madagascar · Full Remote</span>
-          <span class="badge" data-en="3 years energy sector" data-fr="3 ans secteur énergie">3 years energy sector</span>
-          <span class="badge" data-en="AI + Web + n8n + GDPR" data-fr="IA + Web + n8n + RGPD">AI + Web + n8n + GDPR</span>
-          <span class="badge" data-en="Systemic thinking" data-fr="Pensée systémique">Systemic thinking</span>
-        </div>
-      </div>
-
-    </div><!-- /about-content -->
-
-    <!-- Dots de progression -->
-    <div id="about-dots">
-      <div class="about-dot active" data-step="0"></div>
-      <div class="about-dot" data-step="1"></div>
-      <div class="about-dot" data-step="2"></div>
-      <div class="about-dot" data-step="3"></div>
-    </div>
-
+<!-- Contenu texte en bas à gauche -->
+<div id="about-content">
+  
+  <!-- PANEL 1 -->
+  <div class="about-panel active" id="ap1">
+    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="01 — ABOUT" data-fr="01 — À PROPOS">01 — ABOUT</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+      <span data-en="Before coding," data-fr="Avant de coder,">Before coding,</span><br/>
+      <span style="color:rgba(255,255,255,0.4);" data-en="I listened." data-fr="j'écoutais.">I listened.</span>
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+      <span data-en="Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes." data-fr="Trois ans à gérer 80 appels clients par jour dans le secteur de l'énergie chez Concentrix. J'ai appris à comprendre un marché en profondeur, à qualifier un besoin en 30 secondes, et à convaincre en 5 minutes.">Three years handling 80 client calls a day in the energy sector at Concentrix. I learned to understand a market in depth, qualify a need in 30 seconds, and convince in 5 minutes.</span>
+    </p>
   </div>
+
+  <!-- PANEL 2 -->
+  <div class="about-panel" id="ap2">
+    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="02 — JOURNEY" data-fr="02 — PARCOURS">02 — JOURNEY</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+      <span data-en="I built" data-fr="Je construisais">I built</span><br/>
+      <span style="color:rgba(255,255,255,0.4);" data-en="on the side." data-fr="en parallèle.">on the side.</span>
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+      <span data-en="At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to." data-fr="Chez RTA CALL, je gérais 10 agents et coordonnais la direction. En même temps — la nuit, les week-ends — je construisais Francenergies.com. Sans que personne ne me le demande.">At RTA CALL, I managed 10 agents and coordinated management. At the same time — nights, weekends — I was building Francenergies.com. Without anyone asking me to.</span>
+    </p>
+  </div>
+
+  <!-- PANEL 3 -->
+  <div class="about-panel" id="ap3">
+    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="03 — FRANCENERGIES" data-fr="03 — FRANCENERGIES">03 — FRANCENERGIES</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+      <span data-en="A system" data-fr="Un système">A system</span><br/>
+      <span style="color:rgba(255,255,255,0.4);" data-en="that runs itself." data-fr="qui tourne seul.">that runs itself.</span>
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+      <span data-en="Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational." data-fr="Site professionnel + assistant IA intégré + 3 workflows n8n interconnectés. Collecte B2B, enrichissement, cold email IA personnalisé par secteur. Conforme RGPD. Opérationnel.">Professional website + integrated AI assistant + 3 n8n workflows. B2B collection, enrichment, AI-personalized cold email by sector. GDPR compliant. Operational.</span>
+    </p>
+  </div>
+
+  <!-- PANEL 4 -->
+  <div class="about-panel" id="ap4">
+    <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="04 — TODAY" data-fr="04 — AUJOURD'HUI">04 — TODAY</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:500;line-height:1.1;margin-bottom:16px;">
+      <span data-en="From Madagascar," data-fr="Depuis Madagascar,">From Madagascar,</span><br/>
+      <span style="color:rgba(255,255,255,0.4);" data-en="for the world." data-fr="pour le monde.">for the world.</span>
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:500px;">
+      <span data-en="I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you." data-fr="Je conçois des solutions sur mesure, déployées, documentées, qui tournent seules. Pas des templates. Des systèmes qui font le travail à votre place.">I design custom solutions — deployed, documented, self-running. Not templates. Systems that do the work for you.</span>
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
+      <span class="badge" data-en="Madagascar · Full Remote" data-fr="Madagascar · Full Remote">Madagascar · Full Remote</span>
+      <span class="badge" data-en="3 years energy sector" data-fr="3 ans secteur énergie">3 years energy sector</span>
+      <span class="badge" data-en="AI + Web + n8n + GDPR" data-fr="IA + Web + n8n + RGPD">AI + Web + n8n + GDPR</span>
+      <span class="badge" data-en="Systemic thinking" data-fr="Pensée systémique">Systemic thinking</span>
+    </div>
+  </div>
+
+</div><!-- /about-content -->
+
+<!-- Dots de progression -->
+<div id="about-dots">
+  <div class="about-dot active" data-step="0"></div>
+  <div class="about-dot" data-step="1"></div>
+  <div class="about-dot" data-step="2"></div>
+  <div class="about-dot" data-step="3"></div>
 </div>
+
 
 
 <!-- ══════════════════════════════════════════════════
