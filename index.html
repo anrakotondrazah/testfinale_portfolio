@@ -56,16 +56,11 @@
 <!-- ══════════════════════════════════════════════════
      HERO — Spotlight lithos
 ══════════════════════════════════════════════════ -->
-<section id="hero" class="relative w-full overflow-hidden bg-black" style="height:100dvh;">
-  <canvas id="hero-canvas"
-        style="display:none;position:absolute;inset:0;pointer-events:none;z-index:31;">
-</canvas>
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
 
   <!-- Layer 1 fond -->
-  <div id="hero-base"
-     class="absolute inset-0 bg-center bg-cover bg-no-repeat hero-zoom"
-     style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_195923_b0ba8ace-1d1d-4f2c-9a28-1ab84b330680.png&w=1280&q=85');z-index:10;"
-     aria-hidden="true"></div>
+  <div id="hero-base"></div>
 
   <!-- Halos -->
   <div class="halo" style="width:540px;height:540px;"></div>
@@ -73,10 +68,7 @@
   <div class="halo" style="width:340px;height:340px;"></div>
 
   <!-- Layer 2 reveal -->
-  <div id="hero-reveal"
-     class="absolute inset-0 bg-center bg-cover bg-no-repeat pointer-events-none"
-     style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_201152_bba90a12-bf12-459f-91f0-51f237dbaf3b.png&w=1280&q=85');z-index:30;">
-</div>
+  <div id="hero-reveal"></div>
 
   <!-- Layer 3 overlay -->
   <div id="hero-overlay"></div>
