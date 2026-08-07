@@ -139,18 +139,18 @@ background: linear-gradient(
 /* Hero text layers */
 #hero-text-top {
   position: absolute; top: 12%; left: 0; right: 0;
-  z-index: 10; text-align: center; padding: 0 20px;
+  z-index: 50; text-align: center; padding: 0 20px;
   pointer-events: none;
 }
 #hero-text-bl {
   position: absolute; bottom: 56px; left: 40px; max-width: 280px;
-  z-index: 10;
+  z-index: 50;
   display: none;
 }
 @media(min-width:640px) { #hero-text-bl { display: block; } }
 #hero-text-br {
   position: absolute; bottom: 40px; right: 20px;
-  z-index: 10;
+  z-index: 50;
   display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
 }
 @media(min-width:640px) { #hero-text-br { right: 40px; bottom: 56px; } }
