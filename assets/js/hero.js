@@ -14,9 +14,45 @@ const RADIUS = 260;
 function lerp(a, b, t) { return a + (b - a) * t; }
 
 function drawMask() {
-  canvas.width = window.innerWidth;
+  canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (sx < 0) {
+    revealLayer.style.webkitMaskImage = 'none';
+    revealLayer.style.maskImage       = 'none';
+    return;
+  }
+
+  /* ── Zone protégée : le spotlight ne touche JAMAIS le haut 30% ── */
+  const safeTop = canvas.height * 0.30;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, safeTop, canvas.width, canvas.height - safeTop);
+  ctx.clip();
+  /* ────────────────────────────────────────────────────────────── */
+
+  const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, RADIUS);
+  grad.addColorStop(0,    'rgba(255,255,255,1)');
+  grad.addColorStop(0.4,  'rgba(255,255,255,1)');
+  grad.addColorStop(0.6,  'rgba(255,255,255,0.75)');
+  grad.addColorStop(0.75, 'rgba(255,255,255,0.4)');
+  grad.addColorStop(0.88, 'rgba(255,255,255,0.12)');
+  grad.addColorStop(1,    'rgba(255,255,255,0)');
+
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(sx, sy, RADIUS, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore(); /* ← libère le clip, la zone titre reste vide */
+
+  const dataURL = canvas.toDataURL();
+  revealLayer.style.webkitMaskImage = `url(${dataURL})`;
+  revealLayer.style.maskImage        = `url(${dataURL})`;
+  revealLayer.style.webkitMaskSize  = '100% 100%';
+  revealLayer.style.maskSize         = '100% 100%';
+}
 
   if (sx < 0) {
     // Avant survol : masque tout (photo non visible)
