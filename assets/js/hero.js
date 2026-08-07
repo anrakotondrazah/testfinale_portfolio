@@ -25,7 +25,7 @@ function drawMask() {
   }
 
   /* ── Zone protégée : spotlight interdit dans le haut 30% (titres/nav) ── */
-  const safeTop = canvas.height * 0.30;
+  const safeTop = canvas.height * 0.38;
   ctx.save();
   ctx.beginPath();
   ctx.rect(0, safeTop, canvas.width, canvas.height - safeTop);
