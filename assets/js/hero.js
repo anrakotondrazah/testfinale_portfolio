@@ -24,13 +24,13 @@ function drawMask() {
     return;
   }
 
-  /* ── Zone protégée : le spotlight ne touche JAMAIS le haut 30% ── */
+  /* ── Zone protégée : spotlight interdit dans le haut 30% (titres/nav) ── */
   const safeTop = canvas.height * 0.30;
   ctx.save();
   ctx.beginPath();
   ctx.rect(0, safeTop, canvas.width, canvas.height - safeTop);
   ctx.clip();
-  /* ────────────────────────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────────────── */
 
   const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, RADIUS);
   grad.addColorStop(0,    'rgba(255,255,255,1)');
@@ -45,34 +45,7 @@ function drawMask() {
   ctx.arc(sx, sy, RADIUS, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.restore(); /* ← libère le clip, la zone titre reste vide */
-
-  const dataURL = canvas.toDataURL();
-  revealLayer.style.webkitMaskImage = `url(${dataURL})`;
-  revealLayer.style.maskImage        = `url(${dataURL})`;
-  revealLayer.style.webkitMaskSize  = '100% 100%';
-  revealLayer.style.maskSize         = '100% 100%';
-}
-
-  if (sx < 0) {
-    // Avant survol : masque tout (photo non visible)
-    revealLayer.style.webkitMaskImage = 'none';
-    revealLayer.style.maskImage = 'none';
-    return;
-  }
-
-  const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, RADIUS);
-grad.addColorStop(0,    'rgba(255,255,255,1)');
-grad.addColorStop(0.4,  'rgba(255,255,255,1)');
-grad.addColorStop(0.6,  'rgba(255,255,255,0.75)');
-grad.addColorStop(0.75, 'rgba(255,255,255,0.4)');
-grad.addColorStop(0.88, 'rgba(255,255,255,0.12)');
-grad.addColorStop(1,    'rgba(255,255,255,0)');
-
-  ctx.fillStyle = grad;
-  ctx.beginPath();
-  ctx.arc(sx, sy, RADIUS, 0, Math.PI * 2);
-  ctx.fill();
+  ctx.restore(); /* ← libère le clip */
 
   const dataURL = canvas.toDataURL();
   revealLayer.style.webkitMaskImage = `url(${dataURL})`;
@@ -84,7 +57,6 @@ grad.addColorStop(1,    'rgba(255,255,255,0)');
 document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
 (function tick() {
-  // Initialisation au premier mouvement de souris
   if (sx < 0 && mx > 0) { sx = mx; sy = my; }
   sx = lerp(sx, mx, 0.09);
   sy = lerp(sy, my, 0.09);
@@ -93,6 +65,6 @@ document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; })
 })();
 
 window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
+  canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
 });
