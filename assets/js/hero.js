@@ -1,6 +1,6 @@
-/* hero.js — Lithos Spotlight. Exact copy from working base. */
+/* hero.js — Lithos Spotlight */
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   1. HERO SPOTLIGHT (canvas mask, lithos)
+   HERO SPOTLIGHT (canvas mask, lithos)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 const canvas = document.getElementById('hero-canvas');
 canvas.width = window.innerWidth;
@@ -24,14 +24,7 @@ function drawMask() {
     return;
   }
 
-  /* ── Zone protégée : spotlight interdit dans le haut 30% (titres/nav) ── */
-  const safeTop = canvas.height * 0.38;
-  ctx.save();
-  ctx.beginPath();
-  ctx.rect(0, safeTop, canvas.width, canvas.height - safeTop);
-  ctx.clip();
-  /* ─────────────────────────────────────────────────────────────────────── */
-
+  /* ── 1. Dessine le spotlight normalement ── */
   const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, RADIUS);
   grad.addColorStop(0,    'rgba(255,255,255,1)');
   grad.addColorStop(0.4,  'rgba(255,255,255,1)');
@@ -45,8 +38,22 @@ function drawMask() {
   ctx.arc(sx, sy, RADIUS, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.restore(); /* ← libère le clip */
+  /* ── 2. Fondu progressif vers le haut (pas de coupure sèche) ──
+     destination-in : multiplie l'alpha existant par le nouveau
+     → spotlight s'estompe doucement dans la zone titre           */
+  const fadeFrom = canvas.height * 0.05;  /* totalement caché au-dessus (nav) */
+  const fadeTo   = canvas.height * 0.36;  /* totalement visible en-dessous    */
 
+  const fadeGrad = ctx.createLinearGradient(0, fadeFrom, 0, fadeTo);
+  fadeGrad.addColorStop(0, 'rgba(0,0,0,0)'); /* transparent → spotlight invisible */
+  fadeGrad.addColorStop(1, 'rgba(0,0,0,1)'); /* opaque     → spotlight plein      */
+
+  ctx.globalCompositeOperation = 'destination-in';
+  ctx.fillStyle = fadeGrad;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.globalCompositeOperation = 'source-over'; /* reset obligatoire */
+
+  /* ── 3. Applique le masque sur le reveal layer ── */
   const dataURL = canvas.toDataURL();
   revealLayer.style.webkitMaskImage = `url(${dataURL})`;
   revealLayer.style.maskImage        = `url(${dataURL})`;
