@@ -53,25 +53,33 @@
 </nav>
 
 
-<!-- ══════════════════════════════════════════════════
-     HERO — Spotlight lithos
-══════════════════════════════════════════════════ -->
-<section id="hero">
-  <canvas id="hero-canvas"></canvas>
+<!-- ══ HERO — Spotlight lithos ══ -->
+<section id="hero"
+         class="relative w-full overflow-hidden bg-black"
+         style="height:100dvh;">
 
-  <!-- Layer 1 fond -->
-  <div id="hero-base"></div>
+  <!-- Layer 1 : BG1 — fond sombre, Ken Burns zoom-out -->
+  <div class="absolute inset-0 bg-center bg-cover bg-no-repeat hero-zoom"
+       style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_195923_b0ba8ace-1d1d-4f2c-9a28-1ab84b330680.png&w=1280&q=85');z-index:10;"
+       aria-hidden="true"></div>
 
-  <!-- Halos -->
-  <div class="halo" style="width:540px;height:540px;"></div>
-  <div class="halo" style="width:440px;height:440px;"></div>
-  <div class="halo" style="width:340px;height:340px;"></div>
+  <!-- Halos décoratifs -->
+  <div class="halo" style="width:540px;height:540px;z-index:15;"></div>
+  <div class="halo" style="width:440px;height:440px;z-index:15;"></div>
+  <div class="halo" style="width:340px;height:340px;z-index:15;"></div>
 
-  <!-- Layer 2 reveal -->
-  <div id="hero-reveal"></div>
+  <!-- Layer 2 : BG2 — révélée par spotlight canvas mask -->
+  <div class="absolute inset-0" style="z-index:30;">
+    <canvas id="hero-canvas"
+            style="display:none;position:absolute;inset:0;pointer-events:none;"></canvas>
+    <div id="hero-reveal"
+         class="absolute inset-0 bg-center bg-cover bg-no-repeat pointer-events-none"
+         style="background-image:url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_201152_bba90a12-bf12-459f-91f0-51f237dbaf3b.png&w=1280&q=85');"></div>
+  </div>
 
-  <!-- Layer 3 overlay -->
-  <div id="hero-overlay"></div>
+  <!-- Overlay léger pour lisibilité texte -->
+  <div id="hero-overlay"
+       style="position:absolute;inset:0;background:rgba(0,0,0,0.18);z-index:35;pointer-events:none;"></div>
 
   <!-- Texte haut -->
   <div id="hero-text-top" style="z-index:10;">
