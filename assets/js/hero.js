@@ -9,7 +9,7 @@ const ctx = canvas.getContext('2d');
 const revealLayer = document.getElementById('hero-reveal');
 
 let mx = -999, my = -999, sx = -999, sy = -999;
-const RADIUS = 280;
+const RADIUS = 260;
 
 function lerp(a, b, t) { return a + (b - a) * t; }
 
@@ -26,11 +26,12 @@ function drawMask() {
   }
 
   const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, RADIUS);
-  grad.addColorStop(0,    'rgba(255,255,255,1)');
-  grad.addColorStop(0.45, 'rgba(255,255,255,1)');
-  grad.addColorStop(0.65, 'rgba(255,255,255,0.7)');
-  grad.addColorStop(0.80, 'rgba(255,255,255,0.3)');
-  grad.addColorStop(1,    'rgba(255,255,255,0)');
+grad.addColorStop(0,    'rgba(255,255,255,1)');
+grad.addColorStop(0.4,  'rgba(255,255,255,1)');
+grad.addColorStop(0.6,  'rgba(255,255,255,0.75)');
+grad.addColorStop(0.75, 'rgba(255,255,255,0.4)');
+grad.addColorStop(0.88, 'rgba(255,255,255,0.12)');
+grad.addColorStop(1,    'rgba(255,255,255,0)');
 
   ctx.fillStyle = grad;
   ctx.beginPath();
