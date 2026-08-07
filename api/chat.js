@@ -1,6 +1,20 @@
+/* ── Rate limiting simple ── */
+const _rl = new Map();
+function rateLimit(ip) {
+  const now = Date.now();
+  const entry = _rl.get(ip) || { count: 0, start: now };
+  if (now - entry.start > 60000) { entry.count = 0; entry.start = now; }
+  entry.count++;
+  _rl.set(ip, entry);
+  return entry.count > 20; /* max 20 requêtes/minute par IP */
+}
 /* api/chat.js — Groq serverless function. GROQ_API_KEY set in Vercel env vars. */
 
 const Groq = require('groq-sdk');
+const ip = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
+if (rateLimit(ip)) {
+  return res.status(429).json({ error: 'Too many requests. Please wait.' });
+}
 
 const ARIA_PROMPT = `ACTIVE_LANGUAGE = "{{ACTIVE_LANGUAGE}}"
 
