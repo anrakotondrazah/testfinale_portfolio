@@ -80,24 +80,23 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   animation: heroZoom 2s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
-/* Layer 2 — photo Andry révélée par spotlight */
 #hero-reveal {
   position: absolute; inset: 0; z-index: 2;
-  background-image: url('andry-avatar.png');
-  background-size: 520px 520px;
+  background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_201152_bba90a12-bf12-459f-91f0-51f237dbaf3b.png&w=1280&q=85');
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 55%;
-  /* masque généré par le canvas */
+  background-position: center center;
 }
 
 /* Layer 3 — overlay gradient pour lisibilité texte */
 #hero-overlay {
   position: absolute; inset: 0; z-index: 3;
-  background: linear-gradient(
+background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.55) 0%,
-    rgba(0,0,0,0.0) 40%,
-    rgba(0,0,0,0.0) 60%,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.45) 22%,
+    rgba(0,0,0,0.0)  42%,
+    rgba(0,0,0,0.0)  60%,
     rgba(0,0,0,0.72) 100%);
 }
 
