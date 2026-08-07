@@ -232,69 +232,139 @@
 <!-- ══════════════════════════════════════════════════
      PROJETS
 ══════════════════════════════════════════════════ -->
-<section id="projects" style="background:#000;padding:96px 0;">
-     <video id="boomerang-vid" autoplay loop muted playsinline src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto,e_boomerang/v1784911951/output_c67tah.webm
+<section id="projects" style="position:relative;background:#000;padding:96px 0;">
 
-" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;z-index:0;"></video>
+  <video id="boomerang-vid" autoplay loop muted playsinline
+    src="https://res.cloudinary.com/kd5ujryr/video/upload/q_auto,w_1920,f_auto,e_boomerang/v1784911951/output_c67tah.webm"
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;z-index:0;">
+  </video>
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.70);z-index:1;pointer-events:none;"></div>
 
-<div style="position:absolute;inset:0;background:rgba(0,0,0,.70);z-index:1;pointer-events:none;"></div>
-  <div style="max-width:1152px;margin:0 auto;padding:0 24px;">
-       
+  <div style="position:relative;z-index:2;max-width:1152px;margin:0 auto;padding:0 24px;">
+
+    <!-- En-tête section -->
     <div class="section-reveal" style="text-align:center;margin-bottom:64px;">
-      <span class="badge" style="display:inline-flex;margin-bottom:16px;" data-en="My Projects" data-fr="Mes Projets">My Projects</span>
-      <h2 style="font-size:clamp(2.5rem,6vw,4rem);font-weight:500;line-height:1.1;">
+      <span class="badge"
+            style="display:inline-flex;margin-bottom:16px;"
+            data-en="My Projects"
+            data-fr="Mes Projets">My Projects</span>
+      <h2 style="font-size:clamp(2.5rem,6vw,4rem);font-weight:500;line-height:1.1;"
+          data-en="Built for real.<br/><span style='color:rgba(255,255,255,0.4);'>Deployed for real.</span>"
+          data-fr="Construit en vrai.<br/><span style='color:rgba(255,255,255,0.4);'>Déployé en vrai.</span>">
         Construit en vrai.<br/><span style="color:rgba(255,255,255,0.4);">Déployé en vrai.</span>
       </h2>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
 
+      <!-- ── Carte 1 : Agent Vocal IA ── -->
       <div class="liquid-glass glass-card section-reveal" style="border-radius:28px;padding:32px;transition-delay:0.1s;">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
-          <span class="badge" style="font-size:10px;">POC Déployable</span>
+          <span class="badge"
+                style="font-size:10px;"
+                data-en="Deployable POC"
+                data-fr="POC Déployable">POC Déployable</span>
         </div>
-        <h3 class="card-title" style="font-size:1.2rem;" data-en="Voice AI Agent" data-fr="Agent Vocal IA">Voice AI Agent</h3>
-        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;" data-en="Your phone. Automated." data-fr="Votre téléphone. Automatisé.">Your phone. Automated.</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;"><span data-en="AI phone assistant. Answers, qualifies, redirects. 24/7, no human intervention. Live tests completed." data-fr="Assistant téléphonique IA. Répond, qualifie, redirige. 24h/24, 7j/7, sans intervention humaine. Tests réels effectués.">AI phone assistant. Answers, qualifies, redirects. 24/7, no human intervention. Live tests completed.</span></p>
+        <h3 class="card-title"
+            style="font-size:1.2rem;"
+            data-en="Voice AI Agent"
+            data-fr="Agent Vocal IA">Voice AI Agent</h3>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;"
+           data-en="Your phone. Automated."
+           data-fr="Votre téléphone. Automatisé.">Your phone. Automated.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">
+          <span data-en="AI phone assistant. Answers, qualifies, redirects. 24/7, no human intervention. Live tests completed."
+                data-fr="Assistant téléphonique IA. Répond, qualifie, redirige. 24h/24, 7j/7, sans intervention humaine. Tests réels effectués.">
+            AI phone assistant. Answers, qualifies, redirects. 24/7, no human intervention. Live tests completed.
+          </span>
+        </p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
           <span class="badge" style="font-size:10px;">Vapi</span>
           <span class="badge" style="font-size:10px;">OpenAI</span>
           <span class="badge" style="font-size:10px;">ElevenLabs</span>
           <span class="badge" style="font-size:10px;">Deepgram</span>
         </div>
-        <a href="mailto:anrakotondrazah@gmail.com" class="liquid-glass" style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;"><span data-en="Request a demo" data-fr="Demander une démo">Request a demo</span></a>
+        <!-- Bouton : ouvre ARIA + prépare l'email -->
+        <a href="mailto:anrakotondrazah@gmail.com?subject=Demo%20Request%20%E2%80%94%20AI%20Voice%20Agent&body=Hello%20Andry%2C%0A%0AI%20am%20interested%20in%20a%20demo%20of%20your%20AI%20Voice%20Agent%20solution.%0A%0APlease%20get%20in%20touch%20with%20me.%0A%0ABest%20regards%2C"
+           onclick="openAria('demo')"
+           class="liquid-glass"
+           style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+          <span data-en="Request a demo"
+                data-fr="Demander une démo">Request a demo</span>
+        </a>
       </div>
 
+      <!-- ── Carte 2 : Francenergies.com ── -->
       <div class="liquid-glass glass-card section-reveal" style="border-radius:28px;padding:32px;transition-delay:0.2s;">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
-          <span class="badge" style="font-size:10px;">Opérationnel</span>
+          <span class="badge"
+                style="font-size:10px;"
+                data-en="Operational"
+                data-fr="Opérationnel">Opérationnel</span>
         </div>
-        <h3 class="card-title" style="font-size:1.2rem;" data-en="Francenergies.com" data-fr="Francenergies.com">Francenergies.com</h3>
-        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;" data-en="A known market. A system to dominate it." data-fr="Un marché connu. Un système pour le dominer.">A known market. A system to dominate it.</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;"><span data-en="French B2B energy platform. Website + AI + 3 n8n workflows. GDPR compliant. Built alongside a full-time job." data-fr="Plateforme B2B CEE français. Site + IA intégrée + 3 workflows n8n de prospection automatisée. Conforme RGPD. Construit en parallèle d'un CDI.">French B2B energy platform. Website + AI + 3 n8n workflows. GDPR compliant. Built alongside a full-time job.</span></p>
+        <h3 class="card-title"
+            style="font-size:1.2rem;"
+            data-en="Francenergies.com"
+            data-fr="Francenergies.com">Francenergies.com</h3>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;"
+           data-en="A known market. A system to dominate it."
+           data-fr="Un marché connu. Un système pour le dominer.">A known market. A system to dominate it.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">
+          <span data-en="French B2B energy platform. Website + AI + 3 n8n workflows. GDPR compliant. Built alongside a full-time job."
+                data-fr="Plateforme B2B CEE français. Site + IA intégrée + 3 workflows n8n de prospection automatisée. Conforme RGPD. Construit en parallèle d'un CDI.">
+            French B2B energy platform. Website + AI + 3 n8n workflows. GDPR compliant. Built alongside a full-time job.
+          </span>
+        </p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
           <span class="badge" style="font-size:10px;">Next.js</span>
           <span class="badge" style="font-size:10px;">OpenAI API</span>
           <span class="badge" style="font-size:10px;">n8n</span>
           <span class="badge" style="font-size:10px;">RGPD</span>
         </div>
-        <a href="https://francenergies.com" target="_blank" class="liquid-glass" style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;">Voir le site →</a>
+        <!-- Bouton : ouvre le site directement -->
+        <a href="https://francenergies.com"
+           target="_blank"
+           class="liquid-glass"
+           style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;text-decoration:none;"
+           data-en="Visit website →"
+           data-fr="Voir le site →">Voir le site →</a>
       </div>
 
+      <!-- ── Carte 3 : Solutions Web Full-Stack ── -->
       <div class="liquid-glass glass-card section-reveal" style="border-radius:28px;padding:32px;transition-delay:0.3s;">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
-          <span class="badge" style="font-size:10px;">En production</span>
+          <span class="badge"
+                style="font-size:10px;"
+                data-en="In production"
+                data-fr="En production">En production</span>
         </div>
-        <h3 class="card-title" style="font-size:1.2rem;" data-en="Full-Stack Web Solutions" data-fr="Solutions Web Full-Stack">Full-Stack Web Solutions</h3>
-        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;" data-en="From mockup to production." data-fr="De la maquette à la production.">From mockup to production.</p>
-        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;"><span data-en="Professional websites and complete platforms. AI integration and GDPR compliance. One contact, from A to Z." data-fr="Sites vitrines et plateformes complètes. Option assistant IA intégré et conformité RGPD. Un seul interlocuteur, de A à Z.">Professional websites and complete platforms. AI integration and GDPR compliance. One contact, from A to Z.</span></p>
+        <h3 class="card-title"
+            style="font-size:1.2rem;"
+            data-en="Full-Stack Web Solutions"
+            data-fr="Solutions Web Full-Stack">Full-Stack Web Solutions</h3>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:12px;"
+           data-en="From mockup to production."
+           data-fr="De la maquette à la production.">From mockup to production.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;">
+          <span data-en="Professional websites and complete platforms. AI integration and GDPR compliance. One contact, from A to Z."
+                data-fr="Sites vitrines et plateformes complètes. Option assistant IA intégré et conformité RGPD. Un seul interlocuteur, de A à Z.">
+            Professional websites and complete platforms. AI integration and GDPR compliance. One contact, from A to Z.
+          </span>
+        </p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
           <span class="badge" style="font-size:10px;">React</span>
           <span class="badge" style="font-size:10px;">Next.js</span>
           <span class="badge" style="font-size:10px;">TypeScript</span>
           <span class="badge" style="font-size:10px;">Vercel</span>
         </div>
-        <a href="mailto:anrakotondrazah@gmail.com" class="liquid-glass" style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;"><span data-en="Discuss your project" data-fr="Discuter de votre projet">Discuss your project</span></a>
+        <!-- Bouton : ouvre ARIA + prépare l'email -->
+        <a href="mailto:anrakotondrazah@gmail.com?subject=Project%20Discussion%20%E2%80%94%20Web%20Solutions&body=Hello%20Andry%2C%0A%0AI%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20web%20project%20with%20you.%0A%0ABest%20regards%2C"
+           onclick="openAria('project')"
+           class="liquid-glass"
+           style="border-radius:999px;padding:10px 22px;font-size:12px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+          <span data-en="Discuss your project"
+                data-fr="Discuter de votre projet">Discuss your project</span>
+        </a>
       </div>
 
     </div>
